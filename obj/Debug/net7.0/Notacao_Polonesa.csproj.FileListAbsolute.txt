@@ -1,0 +1,14 @@
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\bin\Debug\net7.0\Notacao_Polonesa.exe
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\bin\Debug\net7.0\Notacao_Polonesa.deps.json
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\bin\Debug\net7.0\Notacao_Polonesa.runtimeconfig.json
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\bin\Debug\net7.0\Notacao_Polonesa.dll
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\bin\Debug\net7.0\Notacao_Polonesa.pdb
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.AssemblyInfoInputs.cache
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.AssemblyInfo.cs
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.csproj.CoreCompileInputs.cache
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.dll
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\refint\Notacao_Polonesa.dll
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.pdb
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\Notacao_Polonesa.genruntimeconfig.cache
+C:\Cursos\Sistema de inforção\Disciplinas\AED\Notacao_Polonesa\obj\Debug\net7.0\ref\Notacao_Polonesa.dll
