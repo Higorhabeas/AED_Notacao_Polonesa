@@ -37,7 +37,7 @@ class Program
                 /*lendo os elementos da lista baseada na expressão*/
                 for (int i = 0; i < elementos.Count; i++)
                 {
-                    Console.WriteLine("Elemento: " + elementos[i]);
+                    //Console.WriteLine("Elemento: " + elementos[i]);
                     //verificando se é número
                     if (float.TryParse(elementos[i], out _))
                     {
@@ -104,20 +104,20 @@ class Program
                 Console.WriteLine("Expressão polonesa: ");
                 for(int i = 0; i < vetorPolonesa.Length; i++)
                 {
-                    Console.Write(vetorPolonesa[i]);
+                    Console.Write(" "+vetorPolonesa[i]);
                 }
-                Console.WriteLine("");
+                
                 pilha.Clear();
                 /*lendo a notação polonesa e fazendo as oparções*/
                 for (int j = 0; j < vetorPolonesa.Length; j++)
                 {
-                     NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                    
                     CultureInfo culture = CultureInfo.InvariantCulture;
                     /*se for número empilha*/
                     if (float.TryParse(vetorPolonesa[j], out _))
                     {
 
-                        pilhaValores.Push(float.Parse(vetorPolonesa[j]));
+                        pilhaValores.Push(float.Parse(vetorPolonesa[j],culture));
 
                     }
                     else
@@ -131,8 +131,9 @@ class Program
                         {
                             float y = 0;
                             float x = 0;
-                        
+                                //Console.WriteLine("\nConsultando antes de fazer operação y : " + pilhaValores.Peek());
                                 y = pilhaValores.Pop();
+
                             
                             if (pilhaValores.Count == 0)
                             {
@@ -140,29 +141,30 @@ class Program
                             }
                             else
                             {
+                                //Console.WriteLine("Consultando antes de fazer operação x : " + pilhaValores.Peek());
                                 x = pilhaValores.Pop();
                                 
 
                                 switch (vetorPolonesa[j])
                                 {
                                     case "+":
-                                        pilhaValores.Push(x+y);
+                                        pilhaValores.Push(x + y);                                        
                                         break;
                                     case "-":
-                                        pilhaValores.Push(x - y);
+                                        pilhaValores.Push(x - y);                                        
                                         break;
                                     case "*":
-                                        pilhaValores.Push(x * y);
+                                        pilhaValores.Push(x * y);                                        
                                         break;
                                     case "/":
-                                        pilhaValores.Push(x / y);
+                                        pilhaValores.Push(x / y);                                        
                                         break;
 
                                     default:
                                         Console.WriteLine("Número inválido!");
                                         break;
                                 }
-                                Console.WriteLine("O resultado da expressão digitada é :" + pilhaValores.Peek());
+                                Console.WriteLine("\nO resultado da operação empilhada é :" + pilhaValores.Peek());
                             }
                         }
                     }
@@ -203,9 +205,11 @@ class Program
         {
             if(primeiroCiclo)
             {
+                //tratando número negativo
                 if(caractere == '-')
                 {
                     numeroAtual += caractere;
+                    primeiroCiclo = false;
                 }else{
                     Console.WriteLine(caractere);
                     /*verificando se é número*/
@@ -227,7 +231,7 @@ class Program
                     }
 
                 }
-                primeiroCiclo = false;
+                
             }else{
                 if (char.IsDigit(caractere) || caractere == '.')
                     {
