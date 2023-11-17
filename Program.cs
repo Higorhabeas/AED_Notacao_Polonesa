@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design.Serialization;
+using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
 
 
 class Program
@@ -27,6 +29,7 @@ class Program
                 List<string> elementos = SepararElementos(expressao);
                 /*criando a pilha*/
                 Stack<string> pilha = new Stack<string>();
+                Stack<float> pilhaValores = new Stack<float>();
                 /*vetor de operadores*/
                 string[] vetorOperadores = new string[expressao.Length];
                 int indexPolonesa = -1;
@@ -34,7 +37,7 @@ class Program
                 /*lendo os elementos da lista baseada na expressão*/
                 for (int i = 0; i < elementos.Count; i++)
                 {
-
+                    Console.WriteLine("Elemento: " + elementos[i]);
                     //verificando se é número
                     if (float.TryParse(elementos[i], out _))
                     {
@@ -108,53 +111,58 @@ class Program
                 /*lendo a notação polonesa e fazendo as oparções*/
                 for (int j = 0; j < vetorPolonesa.Length; j++)
                 {
-
+                     NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                    CultureInfo culture = CultureInfo.InvariantCulture;
                     /*se for número empilha*/
                     if (float.TryParse(vetorPolonesa[j], out _))
                     {
 
-                        pilha.Push(vetorPolonesa[j]);
+                        pilhaValores.Push(float.Parse(vetorPolonesa[j]));
 
                     }
                     else
                     {
                         /*verificando se a pilha está vazia*/
-                        if (pilha.Count == 0)
+                        if (pilhaValores.Count == 0)
                         {
                             Console.WriteLine(" ");
                         }
                         else
                         {
-                            float y = float.Parse(pilha.Pop());
-
-                            if (pilha.Count == 0)
+                            float y = 0;
+                            float x = 0;
+                        
+                                y = pilhaValores.Pop();
+                            
+                            if (pilhaValores.Count == 0)
                             {
                                 Console.WriteLine(" ");
                             }
                             else
                             {
-                                float x = float.Parse(pilha.Pop());
+                                x = pilhaValores.Pop();
+                                
 
                                 switch (vetorPolonesa[j])
                                 {
                                     case "+":
-                                        pilha.Push(Convert.ToString(x + y));
+                                        pilhaValores.Push(x+y);
                                         break;
                                     case "-":
-                                        pilha.Push(Convert.ToString(x - y));
+                                        pilhaValores.Push(x - y);
                                         break;
                                     case "*":
-                                        pilha.Push(Convert.ToString(x * y));
+                                        pilhaValores.Push(x * y);
                                         break;
                                     case "/":
-                                        pilha.Push(Convert.ToString(x / y));
+                                        pilhaValores.Push(x / y);
                                         break;
 
                                     default:
                                         Console.WriteLine("Número inválido!");
                                         break;
                                 }
-                                Console.WriteLine("O resultado da expressão digitada é :" + pilha.Peek());
+                                Console.WriteLine("O resultado da expressão digitada é :" + pilhaValores.Peek());
                             }
                         }
                     }
@@ -188,26 +196,57 @@ class Program
     {
         List<string> elementos = new List<string>();
         string numeroAtual = "";
+        bool primeiroCiclo = true;
+        
 
         foreach (char caractere in expressao)
         {
-            /*verificando se é número*/
-            if (char.IsDigit(caractere) || caractere == '.')
+            if(primeiroCiclo)
             {
-                numeroAtual += caractere;
-            }
-            else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
-            {
-                /*Adiciona o número atual à lista, se não estiver vazio*/
-                if (!string.IsNullOrEmpty(numeroAtual))
+                if(caractere == '-')
                 {
-                    elementos.Add(numeroAtual);
-                    numeroAtual = ""; // Reinicia o número atual
-                }
+                    numeroAtual += caractere;
+                }else{
+                    Console.WriteLine(caractere);
+                    /*verificando se é número*/
+                    if (char.IsDigit(caractere) || caractere == '.')
+                    {
+                        numeroAtual += caractere;
+                    }
+                    else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
+                    {
+                        /*Adiciona o número atual à lista, se não estiver vazio*/
+                        if (!string.IsNullOrEmpty(numeroAtual))
+                        {
+                            elementos.Add(numeroAtual);
+                            numeroAtual = ""; // Reinicia o número atual
+                        }
 
-                // Adiciona o operador ou parêntese à lista
-                elementos.Add(caractere.ToString());
+                        // Adiciona o operador ou parêntese à lista
+                        elementos.Add(caractere.ToString());
+                    }
+
+                }
+                primeiroCiclo = false;
+            }else{
+                if (char.IsDigit(caractere) || caractere == '.')
+                    {
+                        numeroAtual += caractere;
+                    }
+                    else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
+                    {
+                        /*Adiciona o número atual à lista, se não estiver vazio*/
+                        if (!string.IsNullOrEmpty(numeroAtual))
+                        {
+                            elementos.Add(numeroAtual);
+                            numeroAtual = ""; // Reinicia o número atual
+                        }
+
+                        // Adiciona o operador ou parêntese à lista
+                        elementos.Add(caractere.ToString());
+                    }
             }
+            
         }
 
         // Adiciona o último número à lista, se não estiver vazio
