@@ -12,7 +12,7 @@ class Program
         do {
             Console.WriteLine("Digite a expressão que você deseja calcular: ");
             string expressao = Console.ReadLine();
-            //string expressao = "(35+15)/(12-10)*2";
+            //string expressao = "-10+2*5";
             /*Definindo um vetor que irá armazenar a expressao Polonesa reversa*/
             bool flag = true;
             string[] vetorPolonesa = new string[expressao.Length];
@@ -199,18 +199,18 @@ class Program
         List<string> elementos = new List<string>();
         string numeroAtual = "";
         bool primeiroCiclo = true;
-        
-
         foreach (char caractere in expressao)
         {
-            if(primeiroCiclo)
+            if (primeiroCiclo)
             {
                 //tratando número negativo
-                if(caractere == '-')
+                if (caractere == '-')
                 {
                     numeroAtual += caractere;
                     primeiroCiclo = false;
-                }else{
+                }
+                else
+                {
                     Console.WriteLine(caractere);
                     /*verificando se é número*/
                     if (char.IsDigit(caractere) || caractere == '.')
@@ -231,26 +231,28 @@ class Program
                     }
 
                 }
-                
-            }else{
-                if (char.IsDigit(caractere) || caractere == '.')
-                    {
-                        numeroAtual += caractere;
-                    }
-                    else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
-                    {
-                        /*Adiciona o número atual à lista, se não estiver vazio*/
-                        if (!string.IsNullOrEmpty(numeroAtual))
-                        {
-                            elementos.Add(numeroAtual);
-                            numeroAtual = ""; // Reinicia o número atual
-                        }
 
-                        // Adiciona o operador ou parêntese à lista
-                        elementos.Add(caractere.ToString());
-                    }
             }
-            
+            else
+            {
+                if (char.IsDigit(caractere) || caractere == '.')
+                {
+                    numeroAtual += caractere;
+                }
+                else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
+                {
+                    /*Adiciona o número atual à lista, se não estiver vazio*/
+                    if (!string.IsNullOrEmpty(numeroAtual))
+                    {
+                        elementos.Add(numeroAtual);
+                        numeroAtual = ""; // Reinicia o número atual
+                    }
+
+                    // Adiciona o operador ou parêntese à lista
+                    elementos.Add(caractere.ToString());
+                }
+            }
+            primeiroCiclo = false;
         }
 
         // Adiciona o último número à lista, se não estiver vazio

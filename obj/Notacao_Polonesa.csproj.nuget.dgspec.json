@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Pessoal\\Atividades\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj": {}
+    "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj": {}
   },
   "projects": {
-    "C:\\Pessoal\\Atividades\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj": {
+    "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Pessoal\\Atividades\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
+        "projectUniqueName": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
         "projectName": "Notacao_Polonesa",
-        "projectPath": "C:\\Pessoal\\Atividades\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
-        "packagesPath": "C:\\Users\\HAS\\.nuget\\packages\\",
-        "outputPath": "C:\\Pessoal\\Atividades\\AED_Notacao_Polonesa\\obj\\",
+        "projectPath": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
+        "packagesPath": "C:\\Users\\1380848\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HAS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\1380848\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,8 +45,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -55,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
