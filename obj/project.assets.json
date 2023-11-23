@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
+      "projectUniqueName": "C:\\Users\\1380848\\Desktop\\Nova pasta\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
       "projectName": "Notacao_Polonesa",
-      "projectPath": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
+      "projectPath": "C:\\Users\\1380848\\Desktop\\Nova pasta\\AED_Notacao_Polonesa\\Notacao_Polonesa.csproj",
       "packagesPath": "C:\\Users\\1380848\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1380848\\Desktop\\Algoritmo Higor\\AED_Notacao_Polonesa\\obj\\",
+      "outputPath": "C:\\Users\\1380848\\Desktop\\Nova pasta\\AED_Notacao_Polonesa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\1380848\\AppData\\Roaming\\NuGet\\NuGet.Config",

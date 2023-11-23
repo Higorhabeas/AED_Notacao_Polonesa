@@ -196,20 +196,23 @@ class Program
 
      static List<string> SepararElementos(string expressao)
     {
+        char operacaoAnterior = ' ';
         List<string> elementos = new List<string>();
         string numeroAtual = "";
         bool primeiroCiclo = true;
+        bool flag = false;
         foreach (char caractere in expressao)
         {
             if (primeiroCiclo)
             {
+                
                 //tratando número negativo
                 if (caractere == '-')
                 {
                     numeroAtual += caractere;
                     primeiroCiclo = false;
-                }
-                else
+                } 
+                else if(caractere != '+')
                 {
                     Console.WriteLine(caractere);
                     /*verificando se é número*/
@@ -219,19 +222,24 @@ class Program
                     }
                     else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
                     {
-                        /*Adiciona o número atual à lista, se não estiver vazio*/
-                        if (!string.IsNullOrEmpty(numeroAtual))
+                        if ((operacaoAnterior == '/' || operacaoAnterior == '(') && caractere == '-') 
                         {
-                            elementos.Add(numeroAtual);
-                            numeroAtual = ""; // Reinicia o número atual
+                            numeroAtual += caractere;
+                            operacaoAnterior = ' ';
                         }
-
+                        else
+                        {   /*Adiciona o número atual à lista, se não estiver vazio*/
+                            if (!string.IsNullOrEmpty(numeroAtual))
+                            {
+                                elementos.Add(numeroAtual);
+                                numeroAtual = ""; // Reinicia o número atual
+                            }
+                            elementos.Add(caractere.ToString());
+                        }
                         // Adiciona o operador ou parêntese à lista
-                        elementos.Add(caractere.ToString());
                     }
-
                 }
-
+                //(7-4)/-2
             }
             else
             {
@@ -241,18 +249,26 @@ class Program
                 }
                 else if (caractere == '+' || caractere == '-' || caractere == '*' || caractere == '/' || caractere == '(' || caractere == ')')
                 {
-                    /*Adiciona o número atual à lista, se não estiver vazio*/
-                    if (!string.IsNullOrEmpty(numeroAtual))
+                    if ((operacaoAnterior == '/' || operacaoAnterior == '(') && caractere == '-')
                     {
-                        elementos.Add(numeroAtual);
-                        numeroAtual = ""; // Reinicia o número atual
+                        numeroAtual += caractere;
+                        operacaoAnterior = ' ';
                     }
-
+                    else
+                    {
+                        /*Adiciona o número atual à lista, se não estiver vazio*/
+                        if (!string.IsNullOrEmpty(numeroAtual))
+                        {
+                            elementos.Add(numeroAtual);
+                            numeroAtual = ""; // Reinicia o número atual
+                        }
+                        elementos.Add(caractere.ToString());
+                    }
                     // Adiciona o operador ou parêntese à lista
-                    elementos.Add(caractere.ToString());
                 }
             }
             primeiroCiclo = false;
+            operacaoAnterior = caractere;
         }
 
         // Adiciona o último número à lista, se não estiver vazio
